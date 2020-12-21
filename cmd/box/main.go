@@ -95,7 +95,7 @@ func main() {
 			panic("GetGist err:" + err.Error())
 		}
 
-		f := gist.Files[0]
+		f := gist.Files[github.GistFilename(filename)]
 
 		f.Content = github.String(strings.Join(lines, "\n"))
 
