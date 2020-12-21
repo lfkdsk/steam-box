@@ -44,8 +44,8 @@ func main() {
 		}
 	}
 	
-	updateOption := os.Getenv("UPDATE_OPTION") // options for update: GIST (Gist only), MARKDOWN (README only), GIST_AND_MARKDOWN (Gist and README)
-	markdownFile := os.Getenv("MARKDOWN_FILE") // the markdown filename (e.g. MYFILE.md)
+	// updateOption := os.Getenv("UPDATE_OPTION") // options for update: GIST (Gist only), MARKDOWN (README only), GIST_AND_MARKDOWN (Gist and README)
+	// markdownFile := os.Getenv("MARKDOWN_FILE") // the markdown filename (e.g. MYFILE.md)
 
 	var updateGist, updateMarkdown bool
 	if updateOption == "MARKDOWN" {
@@ -95,12 +95,12 @@ func main() {
 			panic("GetGist err:" + err.Error())
 		}
 
-		f := gist.Files[github.GistFilename(filename)]
+		f := gist.Files[0]
 
 		f.Content = github.String(strings.Join(lines, "\n"))
-		gist.Files[github.GistFilename(filename)] = f
 
 		err = box.UpdateGist(ctx, gistID, gist)
+		
 		if err != nil {
 			panic("UpdateGist err:" + err.Error())
 		}
