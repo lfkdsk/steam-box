@@ -80,6 +80,8 @@ func main() {
 		}
 	}
 
+	Println(lines)
+	
 	if updateGist {
 		gist, err := box.GetGist(ctx, gistID)
 		if err != nil {
