@@ -57,6 +57,8 @@ func main() {
 		updateGist = true
 	}
 
+	
+	fmt.Println(updateMarkdown)
 	box := steambox.NewBox(steamAPIKey, ghUsername, ghToken)
 
 	fmt.Println(steamAPIKey)
