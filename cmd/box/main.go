@@ -59,6 +59,11 @@ func main() {
 
 	box := steambox.NewBox(steamAPIKey, ghUsername, ghToken)
 
+	fmt.Println(steamAPIKey)
+	fmt.Println(ghUsername)
+	fmt.Println(ghToken)
+	fmt.Println(steamID)	
+	
 	ctx := context.Background()
 
 	var (
